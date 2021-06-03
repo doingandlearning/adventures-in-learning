@@ -1,4 +1,6 @@
 import { createStore } from "vuex";
+import axios from "axios";
+
 const nodes = [
   { id: "render", name: "Render data in Vue", state: "UNVISITED" },
   { id: "component", name: "Component", state: "UNVISITED" },
@@ -14,7 +16,7 @@ const links = [
 ];
 
 export default createStore({
-  state: { nodes, links },
+  state: { nodes, links, testData: [] },
   mutations: {
     VISIT_TOWN(state, id) {
       state.nodes.map((node) => {
@@ -25,7 +27,19 @@ export default createStore({
         return node;
       });
     },
+    SET_TEST_DATA(state, data) {
+      state.testData = data;
+    },
   },
-  actions: {},
+  actions: {
+    // This is a test route.
+    getTestData({ commit }) {
+      axios
+        .get("https://jsonplaceholder.typicode.com/users")
+        .then((response) => {
+          commit("SET_TEST_DATA", response.data);
+        });
+    },
+  },
   modules: {},
 });

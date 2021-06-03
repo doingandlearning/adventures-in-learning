@@ -8,10 +8,10 @@ const routes = [
     component: Home,
   },
   {
-    path: "/about",
-    name: "About",
+    path: "/data-vuex",
+    name: "DataVuex",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+      import(/* webpackChunkName: "about" */ "../views/DataVuex.vue"),
   },
   {
     path: "/traffic",

@@ -18,7 +18,7 @@ This project is created as part of a Learning Club with [egghead](https://egghea
   - [ ] View and interact with a map of a region (large topic area)
     - [ ] This will be a map with "cities/towns" that represent topic areas. 
     - [ ] The topic areas should be managed by a data file or API payload (Airtable/Mongo/Firebase or other data)
-    - [ ]They should be coloured (or otherwise indicate) to show if the user has visited before, cleared or never.
+    - [ ] They should be coloured (or otherwise indicate) to show if the user has visited before, cleared or never.
   - [ ] Select a town in the region (specific topic)
     - [ ] Clicking a town should show some animation or movement towards that spot
     - [ ] A modal (or other) should show info about the topic, features "in the surrounding area" and some things of notice in town
