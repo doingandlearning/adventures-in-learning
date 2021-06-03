@@ -18,7 +18,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import { createMachine } from "xstate";
 import { useMachine } from "@xstate/vue";
 import Circle from "../components/Circle";
