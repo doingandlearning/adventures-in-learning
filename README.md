@@ -15,13 +15,13 @@ This project is created as part of a Learning Club with [egghead](https://egghea
 
 ## Initial Functionality
 - Pre-created maps:
-  - [ ] View and interact with a map of a region (large topic area)
-    - [ ] This will be a map with "cities/towns" that represent topic areas. 
-    - [ ] The topic areas should be managed by a data file or API payload (Airtable/Mongo/Firebase or other data)
-    - [ ] They should be coloured (or otherwise indicate) to show if the user has visited before, cleared or never.
-  - [ ] Select a town in the region (specific topic)
+  - [x] View and interact with a map of a region (large topic area)
+    - [x] This will be a map with "cities/towns" that represent topic areas. 
+    - [x] The topic areas should be managed by a data file or API payload (Airtable/Mongo/Firebase or other data)
+    - [x] They should be coloured (or otherwise indicate) to show if the user has visited before, cleared or never.
+  - [x] Select a town in the region (specific topic)
     - [ ] Clicking a town should show some animation or movement towards that spot
-    - [ ] A modal (or other) should show info about the topic, features "in the surrounding area" and some things of notice in town
+    - [x] A modal (or other) should show info about the topic, features "in the surrounding area" and some things of notice in town
   - [ ] View list of adventures within the town (resources: videos/articles/exercises)
     - [ ] Not to push the metaphor to far this will include resources, exercises, videos, articles and other starting points for learning
   - [ ] Defeat the boss in a town (capstone project)
