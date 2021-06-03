@@ -8,10 +8,28 @@ Initially this will be single player mode but it could develop into a platform t
 
 This project is created as part of a Learning Club with [egghead](https://egghead.io) around state management. I'm going to be building with Vue and trying to learn and leverage XState.
 
+## What is it?
+This will be a front-end exploration of learning maps. Initially, it will be a tool to explore maps created by others. It'll be a way to make connections in your knowledge, gamify your learning and help to identify gaps.
+
+## What does it look like?
+This is definitely a BETA. I'm not a gifted designer and initially will push into the logic, state and data-flow. 
+
+
+## How will you use it?
+It is built in Vue 3. To run locally it will be:
+
+```
+yarn install
+yarn serve
+```
+
+I'll share a live demo closer to completion.
+
 ## Technologies used
 - Vue 3
 - XState
-
+- Airtable (maybe?)
+- Vue Auth
 
 ## Initial Functionality
 - Pre-created maps:
