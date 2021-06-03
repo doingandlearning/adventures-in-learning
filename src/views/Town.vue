@@ -1,33 +1,23 @@
-<script>
-import { createMachine } from "xstate";
-import { useMachine } from "@xstate/vue";
+<template>
+  <pre>{{ JSON.stringify(town) }}</pre>
+  <div><button @click="visitAndReturn">Mark as visited</button></div>
+</template>
 
-export const town = createMachine({
-  id: "town",
-  initial: "unvisited",
-  states: {
-    unvisited: {
-      on: { PROGRESS: "visited" },
-    },
-    visited: {
-      on: { PROGRESS: "completed" },
-    },
-    completed: {
-      type: "final",
-    },
-  },
-});
+<script>
 export default {
-  setup() {
-    const { state, send } = useMachine(town);
-    return {
-      state,
-      send,
-    };
-  },
   methods: {
-    isActive(color) {
-      return this.state.value.includes(color);
+    visitAndReturn() {
+      this.$store.commit("VISIT_TOWN", this.town.id);
+      this.$router.push("/map");
+    },
+  },
+  computed: {
+    town() {
+      return (
+        this.$store.state.nodes.filter(
+          (node) => node.id === this.$route.params.id
+        )[0] || {}
+      );
     },
   },
 };

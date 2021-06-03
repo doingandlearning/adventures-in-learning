@@ -12,7 +12,7 @@
         <div class="mt-12">
           <button
             class="border rounded-lg bg-black text-white p-4"
-            @click="$store.commit('VISIT_TOWN', modalContent.id)"
+            @click="$router.push(`/town/${modalContent.id}`)"
           >
             Visit Town
           </button>
@@ -27,7 +27,7 @@ import store from "../store";
 export default {
   el: "#app",
   store: store,
-  data: function () {
+  data() {
     return {
       graph: null,
       showModal: false,
