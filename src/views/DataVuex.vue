@@ -7,7 +7,7 @@
 <script>
 export default {
   mounted() {
-    this.$store.dispatch("getTestData");
+    // this.$store.dispatch("getTestData");
   },
 };
 </script>

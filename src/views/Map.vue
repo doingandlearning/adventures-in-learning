@@ -46,7 +46,7 @@ export default {
       .onNodeClick((node) => this.visitNode(node))
       .nodeColor((node) => (node.state === "UNVISITED" ? "red" : "green"))
       .onBackgroundClick(() => (this.showModal = false));
-    this.$store.dispatch("getTestData");
+    // this.$store.dispatch("getTestData");
   },
 };
 </script>

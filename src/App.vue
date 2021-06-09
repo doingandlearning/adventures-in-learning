@@ -7,7 +7,13 @@
   </div>
   <router-view />
 </template>
-
+<script>
+export default {
+  created() {
+    this.$store.commit("initialiseStore");
+  },
+};
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
