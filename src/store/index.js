@@ -1,29 +1,15 @@
 import { createStore } from "vuex";
-// import axios from "axios";
-
-const nodes = [
-  { id: "render", name: "Render data in Vue", state: "UNVISITED" },
-  { id: "component", name: "Component", state: "UNVISITED" },
-  { id: "methods", name: "Methods", state: "UNVISITED" },
-  { id: "computed", name: "Computed", state: "UNVISITED" },
-];
-
-const links = [
-  { source: "render", target: "component" },
-  { source: "render", target: "methods" },
-  { source: "render", target: "computed" },
-  { source: "methods", target: "component" },
-];
+import axios from "axios";
 
 const store = createStore({
-  state: { nodes, links, testData: [] },
+  state: { nodes: [], links: [] },
   mutations: {
-    initialiseStore(state) {
-      if (localStorage.getItem("store")) {
-        this.replaceState(
-          Object.assign(state, JSON.parse(localStorage.getItem("store")))
-        );
-      }
+    initialiseStore() {
+      // if (localStorage.getItem("store")) {
+      //   this.replaceState(
+      //     Object.assign(state, JSON.parse(localStorage.getItem("store")))
+      //   );
+      // }
     },
     VISIT_TOWN(state, id) {
       state.nodes.map((node) => {
@@ -34,19 +20,37 @@ const store = createStore({
         return node;
       });
     },
-    // SET_TEST_DATA(state, data) {
-    //   state.testData = data;
-    // },
+    SET_MAPS_DATA(state, data) {
+      state.mapsData = data;
+    },
+    SET_TOWNS_DATA(state, data) {
+      state.townsData = data;
+    },
+    SET_ADVENTURES_DATA(state, data) {
+      state.adventuresData = data;
+    },
+    SET_NODES_DATA(state, data) {
+      state.nodes = data;
+    },
+    SET_LINKS_DATA(state, data) {
+      state.links = data;
+    },
   },
   actions: {
-    // This is a test route.
-    // getTestData({ commit }) {
-    //   axios
-    //     .get("https://jsonplaceholder.typicode.com/users")
-    //     .then((response) => {
-    //       commit("SET_TEST_DATA", response.data);
-    //     });
-    // },
+    async getMapsData({ commit }) {
+      await axios
+        .get("https://en3cc65xo3z2c4y.m.pipedream.net")
+        .then((response) => {
+          commit("SET_MAPS_DATA", response.data);
+        });
+    },
+    async getTownData({ commit }) {
+      await axios
+        .get("https://en3cc65xo3z2c4y.m.pipedream.net")
+        .then((response) => {
+          commit("SET_MAPS_DATA", response.data);
+        });
+    },
   },
   modules: {},
 });
@@ -60,13 +64,13 @@ store.subscribe((mutation, state) => {
       state: item.state,
     };
   });
-  tempState.links = tempState.links.map((item) => {
+  tempState.links = tempState.links?.map((item) => {
     return {
       source: item.source.id,
       target: item.target.id,
     };
   });
-  console.log(tempState);
+
   localStorage.setItem("store", JSON.stringify(tempState));
 });
 

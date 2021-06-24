@@ -2,7 +2,6 @@
   <div id="app">
     <div id="graph"></div>
     <div class="modal-overlay" id="modal-overlay" v-if="showModal"></div>
-
     <div class="modal" id="modal" v-if="showModal">
       <button class="close-button" id="close-button" @click="showModal = false">
         x
@@ -24,6 +23,7 @@
 <script>
 import ForceGraph from "force-graph";
 import store from "../store";
+import { getTownsByMap } from "../services/airtable";
 export default {
   el: "#app",
   store: store,
@@ -40,13 +40,13 @@ export default {
       this.showModal = true;
     },
   },
-  mounted() {
+  async mounted() {
+    await getTownsByMap(this.$store, this.$route.params.id);
     this.graph = ForceGraph()(document.getElementById("graph"))
       .graphData(this.$store.state)
       .onNodeClick((node) => this.visitNode(node))
       .nodeColor((node) => (node.state === "UNVISITED" ? "red" : "green"))
       .onBackgroundClick(() => (this.showModal = false));
-    // this.$store.dispatch("getTestData");
   },
 };
 </script>
