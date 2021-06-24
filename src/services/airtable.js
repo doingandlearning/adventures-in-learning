@@ -66,12 +66,16 @@ export async function getTownsByMap(store, map) {
 
 export async function getAdventuresByTown(store, town) {
   try {
-    const results = axios.post("https://enm33mhs1m12eme.m.pipedream.net", {
-      town,
-    });
+    console.log(town);
+    const results = await axios.post(
+      "https://enm33mhs1m12eme.m.pipedream.net",
+      {
+        town,
+      }
+    );
     store.commit("SET_ADVENTURES_DATA", { results });
   } catch (error) {
     console.log(error);
-    throw new Error("Issue with getting maps", error);
+    throw new Error("Issue with getting adventures", error);
   }
 }

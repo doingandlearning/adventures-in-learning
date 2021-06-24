@@ -1,16 +1,15 @@
 import { createStore } from "vuex";
-import axios from "axios";
 
 const store = createStore({
   state: { nodes: [], links: [] },
   mutations: {
-    initialiseStore() {
-      // if (localStorage.getItem("store")) {
-      //   this.replaceState(
-      //     Object.assign(state, JSON.parse(localStorage.getItem("store")))
-      //   );
-      // }
-    },
+    // initialiseStore(state) {
+    //   if (localStorage.getItem("store")) {
+    //     this.replaceState(
+    //       Object.assign(state, JSON.parse(localStorage.getItem("store")))
+    //     );
+    //   }
+    // },
     VISIT_TOWN(state, id) {
       state.nodes.map((node) => {
         if (node.id === id) {
@@ -36,22 +35,7 @@ const store = createStore({
       state.links = data;
     },
   },
-  actions: {
-    async getMapsData({ commit }) {
-      await axios
-        .get("https://en3cc65xo3z2c4y.m.pipedream.net")
-        .then((response) => {
-          commit("SET_MAPS_DATA", response.data);
-        });
-    },
-    async getTownData({ commit }) {
-      await axios
-        .get("https://en3cc65xo3z2c4y.m.pipedream.net")
-        .then((response) => {
-          commit("SET_MAPS_DATA", response.data);
-        });
-    },
-  },
+  actions: {},
   modules: {},
 });
 
